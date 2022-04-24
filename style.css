@@ -78,3 +78,9 @@ h3 {
 #header_div {
   padding: 3%;
 }
+
+@media (max-width: 800px) {
+  body{
+      width: 100vw;
+  }
+}
