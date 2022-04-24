@@ -99,7 +99,7 @@ h3 {
     width: 50em;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: flex-start;
   }
   #header_div{
     width: 100%;
