@@ -1,0 +1,80 @@
+.root {
+  --text-color: white;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 3%;
+  background-color: #202124;
+  color: white;
+}
+body {
+  background-image: url("https://thumbs.dreamstime.com/b/small-wood-airplane-over-world-nautical-map-as-travel-communication-concept-explore-85624473.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h3 {
+  text-align: center;
+  background-color: #202124;
+  color: white;
+  border-radius: 25px;
+  justify-content: center;
+}
+
+#foot_div {
+  margin-top: 5%;
+  justify-content: end;
+  align-items: center;
+  text-align: center;
+}
+
+.form_style {
+  padding: 5%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.form_input_style {
+  margin-bottom: 15px;
+}
+
+.form_label_style {
+  margin-bottom: 10px;
+  background-color: #202124;
+  color: white;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 5%;
+}
+
+.btn_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#form_container {
+  margin-right: 3%;
+}
+
+#cards_container {
+  width: 50em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#header_div {
+  padding: 3%;
+}
