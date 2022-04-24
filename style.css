@@ -84,6 +84,9 @@ h3 {
       width: 100vw;
   }
   .flexbox{
-    width: 100em;
+    width: 100vw;
+  }
+  h3{
+    width: 100vw;
   }
 }
