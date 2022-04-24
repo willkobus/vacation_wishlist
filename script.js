@@ -30,6 +30,7 @@ function makeCard({ destination, location, photo, description }) {
   const card = document.createElement("div");
   card.classList.add("card");
   card.setAttribute("style", "width: 14rem");
+  
 
   const cardPhoto = document.createElement("img");
   cardPhoto.classList.add("card-img-top");
