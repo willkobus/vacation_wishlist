@@ -79,8 +79,11 @@ h3 {
   padding: 3%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   body{
       width: 100vw;
+  }
+  .flexbox{
+    width: 100em;
   }
 }
