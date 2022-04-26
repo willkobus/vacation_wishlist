@@ -11,7 +11,6 @@ function getFormInputValues() {
   return {
     destination: document.getElementById("destination").value,
     location: document.getElementById("location").value,
-    photo: document.getElementById("photo").value,
     description: document.getElementById("description").value,
   };
 }
@@ -26,7 +25,13 @@ function getFormInputValues() {
   </div>
 </div>
 */
-function makeCard({ destination, location, photo, description }) {
+async function makeCard({ destination, location, description }) {
+  encodeURIComponent(destination);
+  const apiURL = `https://pixabay.com/api/?key=26982880-b8836bfc70b423ae9a4c2d356&q=${destination}&image_type=photo&pretty=true`;
+
+  const response = await fetch(apiURL);
+  const data = await response.json();
+  
   const card = document.createElement("div");
   card.classList.add("card");
   card.setAttribute("style", "width: 14rem");
@@ -37,12 +42,13 @@ function makeCard({ destination, location, photo, description }) {
 
   const defaultURL =
     "https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHRyYXZlbHxlbnwwfHwwfHw%3D&w=1000&q=80";
-
-  if (photo.length !== 0) {
-    cardPhoto.setAttribute("src", photo);
-  } else {
-    cardPhoto.setAttribute("src", defaultURL);
-  }
+  
+    
+    if(data.totalHits === 0){
+      cardPhoto.setAttribute("src", defaultURL);
+    }else{
+      cardPhoto.setAttribute("src", data.hits[getRandomImageFromSearch()].largeImageURL);
+    }
   card.appendChild(cardPhoto);
 
   const cardBody = document.createElement("div");
@@ -90,6 +96,8 @@ function makeCard({ destination, location, photo, description }) {
   document.getElementById("cards_container").appendChild(card);
   document.getElementById("card_section_title").innerText = "My Wishlist";
 
+  console.log(data)
+
   return card;
 }
 
@@ -119,13 +127,14 @@ function updateCard(event) {
     cardBody.children[1].innerText = newLocation;
   }
 
-  const newImage = window.prompt("Enter new image URL");
-  if (newImage.length > 0) {
-    card.children[0].setAttribute("src", newImage);
-  }
 
   const newDesription = prompt("Enter new description");
   if (newDesription.length > 0) {
     cardBody.children[2].innerText = newDesription;
   }
+}
+
+function getRandomImageFromSearch(){
+  const randNum = Math.floor(Math.random() * 21);
+  return randNum;
 }
